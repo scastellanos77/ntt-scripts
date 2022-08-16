@@ -22,6 +22,7 @@ pipeline {
     stage('Ejecutar Pruebas') {
       steps {
         sh "docker run ${dockerImage.id} npm test"
+       
       }
     }
     stage('Publicar') {
@@ -41,6 +42,7 @@ pipeline {
         branch 'master'
       }
       steps {
+        sh "docker ps -a"
         build job: 'deploy-webapp-staging', parameters: [string(name: 'ARTIFACT_ID', value: "${env.ARTIFACT_ID}")], wait: false
       }
     }
