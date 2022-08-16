@@ -22,7 +22,7 @@ pipeline {
     stage('Ejecutar Pruebas') {
       steps {
         sh "docker run ${dockerImage.id} npm test"
-       
+        sh "docker ps -a"
       }
     }
     stage('Publicar') {
