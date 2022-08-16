@@ -10,7 +10,7 @@ pipeline {
   }
 
   stages {
-    stage('Build') {
+    stage('Compilar') {
       steps {
         script {
           dir("webapp") {
@@ -19,12 +19,12 @@ pipeline {
         }
       }
     }
-    stage('Run tests') {
+    stage('Ejecutar Pruebas') {
       steps {
         sh "docker run ${dockerImage.id} npm test"
       }
     }
-    stage('Publish') {
+    stage('Publicar') {
       when {
         branch 'master'
       }
@@ -36,7 +36,7 @@ pipeline {
         }
       }
     }
-    stage('Schedule Staging Deployment') {
+    stage('Agendar Staging Deployment') {
       when {
         branch 'master'
       }
