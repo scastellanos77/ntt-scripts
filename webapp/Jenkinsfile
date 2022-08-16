@@ -6,7 +6,7 @@ pipeline {
   }
 
   environment {
-    ARTIFACT_ID = "scastellanos77/webapp:${env.BUILD_NUMBER}"
+    ARTIFACT_ID = "scastell77/webapp:${env.BUILD_NUMBER}"
   }
 
   stages {
@@ -31,7 +31,7 @@ pipeline {
       }
       steps {
         script {
-          docker.withRegistry("", "DockerHubCredentials") {
+          docker.withRegistry("Sa13061977", "DockerHubCredentials") {
             dockerImage.push()
           }
         }
