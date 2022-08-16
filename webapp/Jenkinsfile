@@ -29,7 +29,7 @@ pipeline {
   
       steps {
         script {
-          docker.withRegistry("Sa13061977", "DockerHubCredentials") {
+          docker.withRegistry("", "DockerHubCredentials") {
             dockerImage.push()
           }
         }
